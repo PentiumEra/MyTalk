@@ -10,7 +10,6 @@ import com.hoadong.common.fragment.BaseFragment;
 import java.util.List;
 
 import butterknife.ButterKnife;
-import me.yokeyword.fragmentation.ISupportActivity;
 
 /**
  * Created by linghaoDo on 2018/8/29

@@ -1,0 +1,68 @@
+apply plugin: 'com.android.library'
+android {
+    compileSdkVersion 27
+
+
+
+    defaultConfig {
+        minSdkVersion 22
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    //support包
+    api 'com.android.support.constraint:constraint-layout:1.1.1'
+    api 'com.android.support:appcompat-v7:27.1.1'
+    api 'com.android.support:support-v4:27.1.1'
+    api 'com.android.support:design:27.1.1'
+    api 'com.android.support:recyclerview-v7:27.1.1'
+    api 'junit:junit:4.12'
+
+
+    api "com.android.support:design:$rootProject.ext.supportVersion"
+    api "net.qiujuer.genius:ui:$rootProject.ext.geniusVersion"
+    api "net.qiujuer.genius:res:$rootProject.ext.geniusVersion"
+    api "de.hdodenhof:circleimageview:$rootProject.ext.circleimageviewVersion"
+    api "com.github.bumptech.glide:glide:$rootProject.ext.glideVersion"
+    api "net.qiujuer.genius:kit-handler:$rootProject.ext.geniusVersion"
+    api "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
+
+    // 空气面板
+    api "net.qiujuer.widget:airpanel:$rootProject.ext.airpanelVersion"
+    // Lame 录音 MP3 转码器
+    api "net.qiujuer.lame:lame:$rootProject.ext.lameVersion"
+    //黄油刀
+
+    api 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    // Fragment依赖
+    // noinspection GradleDependency
+    api 'me.yokeyword:fragmentation:1.0.3'
+    // 边缘上滑动回到上一个fragment的类库
+    // noinspection GradleDependency
+    api 'me.yokeyword:fragmentation-swipeback:1.0.3'
+
+    // Recyvlerview依赖
+    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.34'
+    // recyclerview 分割线
+    api 'com.choices.divider:RecyclerView_Divider:1.0.0'
+
+    api project(':language')
+    api project(':face-res')
+}
