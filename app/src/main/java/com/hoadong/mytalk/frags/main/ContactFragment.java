@@ -17,12 +17,7 @@ public class ContactFragment extends BaseFragment {
 
 
     @Override
-    public Object setLayout() {
+    protected int getContentLayoutId() {
         return R.layout.fragment_contact;
-    }
-
-    @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
-
     }
 }

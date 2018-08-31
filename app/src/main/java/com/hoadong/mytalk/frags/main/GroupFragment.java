@@ -14,12 +14,7 @@ import com.hoadong.mytalk.R;
  */
 public class GroupFragment extends BaseFragment {
     @Override
-    public Object setLayout() {
+    protected int getContentLayoutId() {
         return R.layout.fragment_group;
-    }
-
-    @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
-
     }
 }

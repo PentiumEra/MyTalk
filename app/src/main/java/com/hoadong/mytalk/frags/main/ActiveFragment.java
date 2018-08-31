@@ -24,17 +24,7 @@ public class ActiveFragment extends BaseFragment {
 
 
     @Override
-    public Object setLayout() {
+    protected int getContentLayoutId() {
         return R.layout.fragment_active;
-    }
-
-    @Override
-    public void onBindView(@Nullable Bundle savedInstanceState, @NonNull View rootView) {
-
-    }
-
-    @Override
-    public void onLazyInitView(@Nullable Bundle savedInstanceState) {
-        super.onLazyInitView(savedInstanceState);
     }
 }

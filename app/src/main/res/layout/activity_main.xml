@@ -62,6 +62,7 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <net.qiujuer.genius.ui.widget.FloatActionButton
+        android:translationY="@dimen/len_76"
         android:id="@+id/btn_floataction"
         android:layout_width="@dimen/len_52"
         android:layout_height="@dimen/len_52"
@@ -75,6 +76,7 @@
         app:layout_anchorGravity="end|bottom" />
 
     <android.support.design.widget.BottomNavigationView
+        tools:visibility="invisible"
         android:id="@+id/navigation"
         android:layout_width="match_parent"
         android:layout_height="@dimen/len_52"
