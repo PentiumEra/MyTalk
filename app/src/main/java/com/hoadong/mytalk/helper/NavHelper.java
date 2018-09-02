@@ -7,7 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.util.SparseArray;
 
 /**
- * Created by linghaoDo on 2018/8/31
+ * Created by linghaoDo
  * 解决对fragment的调度与重用问题，达到最优的fragment切换
  */
 public class NavHelper<T> {
@@ -17,7 +17,6 @@ public class NavHelper<T> {
     private final int CONTAINER_ID;
     private final FragmentManager FRAGMENTMANAGER;
     private final OnTabChangedListener<T> LISTENER;
-
     private Tab<T> currentTab = null;
 
     public NavHelper(Context context, int containerId, FragmentManager fragmentManager, OnTabChangedListener<T> listener) {
@@ -123,10 +122,6 @@ public class NavHelper<T> {
      * @param <T> Tab的额外参数
      */
     public static class Tab<T> {
-        public Tab(Class<?> clx, T extra) {
-            this.clx = clx;
-            this.extra = extra;
-        }
 
         // 实例化fragment由内部调度， fragment对应的class信息
         public Class<?> clx;
@@ -135,6 +130,10 @@ public class NavHelper<T> {
         //内部缓存定义的fragment
         Fragment fragment;
 
+        public Tab(Class<?> clx, T extra) {
+            this.clx = clx;
+            this.extra = extra;
+        }
     }
 
     /**

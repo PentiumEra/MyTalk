@@ -26,7 +26,7 @@ public abstract class RecyclerAdapter<Data>
         implements View.OnClickListener,
         View.OnLongClickListener,
         IAdapterCallback<Data> {
-    private final List<Data> mDataList  ;
+    private final List<Data> mDataList ;
     private AdapterListener mListener = null;
 
     /**
@@ -43,8 +43,6 @@ public abstract class RecyclerAdapter<Data>
         this.mListener = listener;
         this.mDataList = dataList;
     }
-
-
     /**
      * 复写默认布局类型返回
      *
@@ -82,11 +80,9 @@ public abstract class RecyclerAdapter<Data>
         ViewHolder<Data> holder = onCreatedViewHolder(root, viewType);
         // 使用设置id的方法，避免冲突
         root.setTag(R.id.tag_recycler_holder, holder);
-
         // 设置事件点击
         root.setOnClickListener(this);
         root.setOnLongClickListener(this);
-
         // 界面数据绑定
         holder.unbinder = ButterKnife.bind(holder, root);
         //绑定callback
@@ -216,6 +212,18 @@ public abstract class RecyclerAdapter<Data>
         void onItemLongClick(RecyclerAdapter.ViewHolder holder, Data data);
     }
 
+    @Override
+    public void update(Data data, ViewHolder<Data> holder) {
+
+        int pos=holder.getAdapterPosition();
+        if (pos>=0){
+            // 进行数据的移除与更新
+            //并通知刷新
+            mDataList.remove(pos);
+            mDataList.add(pos,data);
+            notifyItemChanged(pos);
+        }
+    }
 
     /**
      * 自定义的viewholder
@@ -260,6 +268,20 @@ public abstract class RecyclerAdapter<Data>
         }
     }
 
+    /**
+     * 对回调接口作实现
+     * @param <Data>
+     */
+    public static abstract class AdapterListenerImpl<Data> implements AdapterListener<Data>{
 
+        @Override
+        public void onItemClick(ViewHolder holder, Data data) {
 
+        }
+
+        @Override
+        public void onItemLongClick(ViewHolder holder, Data data) {
+
+        }
+    }
 }
