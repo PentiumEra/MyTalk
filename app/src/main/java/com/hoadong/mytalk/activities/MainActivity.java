@@ -1,6 +1,8 @@
-package com.hoadong.mytalk;
+package com.hoadong.mytalk.activities;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.view.Menu;
@@ -17,6 +19,7 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.ViewTarget;
 import com.hoadong.common.app.BaseActivity;
 import com.hoadong.common.ui.PortraitView;
+import com.hoadong.mytalk.R;
 import com.hoadong.mytalk.frags.main.ActiveFragment;
 import com.hoadong.mytalk.frags.main.ContactFragment;
 import com.hoadong.mytalk.frags.main.GroupFragment;
@@ -48,6 +51,15 @@ public class MainActivity extends BaseActivity implements
     @BindView(R.id.navigation)
     BottomNavigationView mNavigationView;
     private NavHelper<Integer> mNavHelper = null;
+
+    /**
+     * 显示入口
+     * @param context
+     */
+    public static void show(Context context){
+        context.startActivity(new Intent(context,MainActivity.class));
+    }
+
 
     @Override
     protected int getContentLayoutId() {
@@ -88,6 +100,7 @@ public class MainActivity extends BaseActivity implements
 
     @OnClick(R.id.iv_avator)
     void onAvatorClick() {
+        AccountActivity.show(this);
     }
 
     @OnClick(R.id.iv_search)
